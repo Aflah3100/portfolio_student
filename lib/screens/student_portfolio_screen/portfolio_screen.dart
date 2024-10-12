@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolio_student/screens/student_portfolio_screen/widgets/project_display_card.dart';
 import 'package:portfolio_student/utils/app_colors.dart';
 import 'package:portfolio_student/utils/assets.dart';
 
 class PortfolioScreen extends StatelessWidget {
-  const PortfolioScreen({super.key});
-
+  PortfolioScreen({super.key});
+  final List<String> sampleImages = [
+    Assets.sampleImage1,
+    Assets.sampleImage2,
+    Assets.sampleImage3,
+    Assets.sampleImage4,
+    Assets.sampleImage5
+  ];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -150,15 +157,42 @@ class PortfolioScreen extends StatelessWidget {
                       height: 15.h,
                     ),
                     Expanded(
-                        child: Container(
-                      color: Colors.red,
-                    ))
+                        child: ListView.separated(
+                            itemBuilder: (context, index) {
+                              return ProjectDisplayCard(
+                                  title1: 'Kemampuan Merangkum Tulisan',
+                                  title2: 'BAHASA SUNDA',
+                                  title3: 'Oleh Al-Baiqi Samaan',
+                                  image: sampleImages[
+                                      index % sampleImages.length]);
+                            },
+                            separatorBuilder: (context, index) {
+                              return const SizedBox(
+                                height: 10,
+                              );
+                            },
+                            itemCount: 15))
                   ],
                 )),
 
-            Center(child: Text('Saved')),
-            Center(child: Text('Shared')),
-            Center(child: Text('Achievement')),
+            const Center(
+                child: Text('Saved',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 17))),
+            const Center(
+                child: Text('Shared',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 17))),
+            const Center(
+                child: Text('Achievement',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 17))),
           ],
         ),
       ),
