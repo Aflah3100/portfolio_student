@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ScreensProvider with ChangeNotifier {
-  int _screenIndex = 0;
+  int _screenIndex = 1;
 
   void setScreenIndex(int index) {
     _screenIndex = index;
