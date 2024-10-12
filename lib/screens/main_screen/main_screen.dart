@@ -12,9 +12,10 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Screens-list
     final List<Widget> appScreens = [
       const HomeScreen(),
-      const PortfolioScreen(),
+       PortfolioScreen(),
       const InputScreen(),
       const ProfileScreen()
     ];

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return MultiProvider(
             providers: [
-              ChangeNotifierProvider(create: (ctx)=> ScreensProvider())
+              ChangeNotifierProvider(create: (ctx) => ScreensProvider())
             ],
             child: MaterialApp(
                 title: 'Flutter Demo',
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
                       ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
                   useMaterial3: true,
                 ),
-                home: MainScreen()),
+                home: const MainScreen()),
           );
         });
   }
