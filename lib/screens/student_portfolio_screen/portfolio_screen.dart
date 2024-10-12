@@ -5,8 +5,14 @@ import 'package:portfolio_student/screens/student_portfolio_screen/widgets/proje
 import 'package:portfolio_student/utils/app_colors.dart';
 import 'package:portfolio_student/utils/assets.dart';
 
-class PortfolioScreen extends StatelessWidget {
+class PortfolioScreen extends StatefulWidget {
   PortfolioScreen({super.key});
+
+  @override
+  State<PortfolioScreen> createState() => _PortfolioScreenState();
+}
+
+class _PortfolioScreenState extends State<PortfolioScreen> {
   final List<String> sampleImages = [
     Assets.sampleImage1,
     Assets.sampleImage2,
@@ -14,6 +20,7 @@ class PortfolioScreen extends StatelessWidget {
     Assets.sampleImage4,
     Assets.sampleImage5
   ];
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -104,10 +111,7 @@ class PortfolioScreen extends StatelessWidget {
             //Project-Section
             Container(
                 padding: const EdgeInsets.all(20),
-                child:
-
-                    //Search-box
-                    Stack(
+                child: Stack(
                   children: [
                     Column(
                       children: [
@@ -180,7 +184,7 @@ class PortfolioScreen extends StatelessWidget {
                     //Filter-button
                     const Align(
                         alignment: Alignment.bottomCenter,
-                        child: Positioned(bottom: 0, child: FilterButton()))
+                        child: FilterButton())
                   ],
                 )),
 
