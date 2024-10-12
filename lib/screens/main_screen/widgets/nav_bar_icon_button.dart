@@ -9,23 +9,34 @@ class NavBarIconButton extends StatelessWidget {
     required this.onTap,
     required this.icon,
     required this.labelColor,
+    required this.isSelected,
   });
   final String label;
   final void Function() onTap;
   final Widget icon;
   final Color labelColor;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        IconButton(color: AppColors.greyColor, onPressed: onTap, icon: icon),
-        Text(
-          label,
-          style: TextStyle(
-              fontWeight: FontWeight.w400, fontSize: 12.sp, color: labelColor),
-        )
-      ],
+    return InkWell(
+      onTap: onTap,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          (isSelected)
+              ? Container(width: 24, height: 2.h, color: AppColors.primaryColor)
+              : const SizedBox(),
+          icon,
+          Text(
+            label,
+            style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 12.sp,
+                color: labelColor),
+          )
+        ],
+      ),
     );
   }
 }

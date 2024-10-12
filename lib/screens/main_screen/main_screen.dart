@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
     //Screens-list
     final List<Widget> appScreens = [
       const HomeScreen(),
-       PortfolioScreen(),
+      PortfolioScreen(),
       const InputScreen(),
       const ProfileScreen()
     ];

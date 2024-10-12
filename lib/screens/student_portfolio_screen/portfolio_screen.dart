@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolio_student/screens/student_portfolio_screen/widgets/filter_button.dart';
 import 'package:portfolio_student/screens/student_portfolio_screen/widgets/project_display_card.dart';
 import 'package:portfolio_student/utils/app_colors.dart';
 import 'package:portfolio_student/utils/assets.dart';
@@ -106,72 +107,80 @@ class PortfolioScreen extends StatelessWidget {
                 child:
 
                     //Search-box
-                    Column(
+                    Stack(
                   children: [
-                    //Search-feield
-                    Container(
-                      padding: EdgeInsets.only(left: 15.sp, right: 10.sp),
-                      height: 44.h,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.borderColor),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: 'Search a project',
-                                hintMaxLines: 1,
-                                hintStyle: TextStyle(
-                                  color: const Color(0xff9E95A2),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14.sp,
+                    Column(
+                      children: [
+                        //Search-feield
+                        Container(
+                          padding: EdgeInsets.only(left: 15.sp, right: 10.sp),
+                          height: 44.h,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: AppColors.borderColor),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Search a project',
+                                    hintMaxLines: 1,
+                                    hintStyle: TextStyle(
+                                      color: const Color(0xff9E95A2),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 14.sp,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                          Container(
-                            height: 28.h,
-                            width: 28.w,
-                            decoration: BoxDecoration(
-                              color: AppColors.primaryColor,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.search,
-                                color: Colors.white,
-                                size: 16.sp,
+                              Container(
+                                height: 28.h,
+                                width: 28.w,
+                                decoration: BoxDecoration(
+                                  color: AppColors.primaryColor,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.search,
+                                    color: Colors.white,
+                                    size: 16.sp,
+                                  ),
+                                  onPressed: () {
+                                    // Handle search action
+                                  },
+                                ),
                               ),
-                              onPressed: () {
-                                // Handle search action
-                              },
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        SizedBox(
+                          height: 15.h,
+                        ),
+                        Expanded(
+                            child: ListView.separated(
+                                itemBuilder: (context, index) {
+                                  return ProjectDisplayCard(
+                                      title1: 'Kemampuan Merangkum Tulisan',
+                                      title2: 'BAHASA SUNDA',
+                                      title3: 'Oleh Al-Baiqi Samaan',
+                                      image: sampleImages[
+                                          index % sampleImages.length]);
+                                },
+                                separatorBuilder: (context, index) {
+                                  return const SizedBox(
+                                    height: 10,
+                                  );
+                                },
+                                itemCount: 15))
+                      ],
                     ),
-                    SizedBox(
-                      height: 15.h,
-                    ),
-                    Expanded(
-                        child: ListView.separated(
-                            itemBuilder: (context, index) {
-                              return ProjectDisplayCard(
-                                  title1: 'Kemampuan Merangkum Tulisan',
-                                  title2: 'BAHASA SUNDA',
-                                  title3: 'Oleh Al-Baiqi Samaan',
-                                  image: sampleImages[
-                                      index % sampleImages.length]);
-                            },
-                            separatorBuilder: (context, index) {
-                              return const SizedBox(
-                                height: 10,
-                              );
-                            },
-                            itemCount: 15))
+                    //Filter-button
+                    const Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Positioned(bottom: 0, child: FilterButton()))
                   ],
                 )),
 

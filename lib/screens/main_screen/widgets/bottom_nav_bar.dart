@@ -35,71 +35,79 @@ class BottomNavBar extends StatelessWidget {
         children: [
           //Home-button
           NavBarIconButton(
-              label: 'Home',
-              labelColor: (provider.getScreenIndex() == 0
+            label: 'Home',
+            labelColor: (provider.getScreenIndex() == 0
+                ? AppColors.primaryColor
+                : AppColors.greyColor),
+            onTap: () {
+              provider.setScreenIndex(0);
+            },
+            icon: ImageIcon(
+              const AssetImage(Assets.homeIconSvg),
+              size: (provider.getScreenIndex() == 0) ? 24.sp : 20.sp,
+              color: (provider.getScreenIndex() == 0
                   ? AppColors.primaryColor
                   : AppColors.greyColor),
-              onTap: () {
-                provider.setScreenIndex(0);
-              },
-              icon: ImageIcon(
-                const AssetImage(Assets.homeIconSvg),
-                size: (provider.getScreenIndex() == 0) ? 24.sp : 20.sp,
-                color: (provider.getScreenIndex() == 0
-                    ? AppColors.primaryColor
-                    : AppColors.greyColor),
-              )),
+            ),
+            isSelected: provider.getScreenIndex() == 0,
+          ),
 
           //Portfolio-button
           NavBarIconButton(
-              label: 'Portfolio',
-              labelColor: (provider.getScreenIndex() == 1
+            label: 'Portfolio',
+            labelColor: (provider.getScreenIndex() == 1
+                ? AppColors.primaryColor
+                : AppColors.greyColor),
+            onTap: () {
+              provider.setScreenIndex(1);
+            },
+            icon: ImageIcon(
+              const AssetImage(Assets.portfolioIconSvg),
+              size: (provider.getScreenIndex() == 1) ? 24.sp : 20.sp,
+              color: (provider.getScreenIndex() == 1
                   ? AppColors.primaryColor
                   : AppColors.greyColor),
-              onTap: () {
-                provider.setScreenIndex(1);
-              },
-              icon: ImageIcon(
-                const AssetImage(Assets.portfolioIconSvg),
-                size: (provider.getScreenIndex() == 1) ? 24.sp : 20.sp,
-                color: (provider.getScreenIndex() == 1
-                    ? AppColors.primaryColor
-                    : AppColors.greyColor),
-              )),
+            ),
+            isSelected: provider.getScreenIndex() == 1,
+          ),
 
           //Input-button
           NavBarIconButton(
-              label: 'Input',
-              labelColor: (provider.getScreenIndex() == 2
+            label: 'Input',
+            labelColor: (provider.getScreenIndex() == 2
+                ? AppColors.primaryColor
+                : AppColors.greyColor),
+            onTap: () {
+              provider.setScreenIndex(2);
+            },
+            icon: ImageIcon(
+              const AssetImage(Assets.inputIconSvg),
+              size: (provider.getScreenIndex() == 2) ? 24.sp : 20.sp,
+              color: (provider.getScreenIndex() == 2
                   ? AppColors.primaryColor
                   : AppColors.greyColor),
-              onTap: () {
-                provider.setScreenIndex(2);
-              },
-              icon: ImageIcon(
-                const AssetImage(Assets.inputIconSvg),
-                size: (provider.getScreenIndex() == 2) ? 24.sp : 20.sp,
-                color: (provider.getScreenIndex() == 2
-                    ? AppColors.primaryColor
-                    : AppColors.greyColor),
-              )),
+            ),
+            isSelected: provider.getScreenIndex() == 2,
+          ),
 
           //Profile-button
           NavBarIconButton(
-              label: 'Profile',
-              labelColor: (provider.getScreenIndex() == 3
+            label: 'Profile',
+            labelColor: (provider.getScreenIndex() == 3
+                ? AppColors.primaryColor
+                : AppColors.greyColor),
+            onTap: () {
+              provider.setScreenIndex(3);
+            },
+            icon: ImageIcon(
+              const AssetImage(Assets.profileIconSvg),
+              size: (provider.getScreenIndex() == 3) ? 24.sp : 20.sp,
+              color: (provider.getScreenIndex() == 3
                   ? AppColors.primaryColor
                   : AppColors.greyColor),
-              onTap: () {
-                provider.setScreenIndex(3);
-              },
-              icon: ImageIcon(
-                const AssetImage(Assets.profileIconSvg),
-                size: (provider.getScreenIndex() == 3) ? 24.sp : 20.sp,
-                color: (provider.getScreenIndex() == 3
-                    ? AppColors.primaryColor
-                    : AppColors.greyColor),
-              ))
+            ),
+            isSelected: provider.getScreenIndex() == 3,
+          )
         ],
       ),
     );
